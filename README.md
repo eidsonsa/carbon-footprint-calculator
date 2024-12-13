@@ -1,7 +1,11 @@
-### Development Journal
+# Development Journal
 
 ## 12/12
 
 - Created Github Repository
-- Created Backend Project with Apollo Server
-- Created Frontend Project with Next + MUI
+- [BE] Created Project with Apollo Server
+- [FE] Created Project with Next + MUI
+
+## 12/13
+
+- [BE] Implemented Calculator for Transportation and Waste

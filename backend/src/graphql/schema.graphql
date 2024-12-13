@@ -1,0 +1,39 @@
+enum MeasureType {
+  year
+  week
+}
+
+input VehicleInfo {
+  miles: Int!
+  milesPerGaloon: Float!
+  measureType: MeasureType!
+}
+
+input TransportationFootprintInput {
+  vehicles: [VehicleInfo!]!
+}
+
+type FootprintResult {
+  total: Int!
+  average: Int!
+}
+
+enum WasteType {
+  aluminum
+  plastic
+  glass
+  newspaper
+  magazines
+}
+
+input WasteFootprintInput {
+  recicled: [WasteType!]!
+  homeQuantity: Int!
+}
+
+type Query {
+  getTransportationFootprint(
+    input: TransportationFootprintInput!
+  ): FootprintResult!
+  getWasteFootprint(input: WasteFootprintInput!): FootprintResult!
+}
