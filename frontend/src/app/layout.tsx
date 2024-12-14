@@ -1,6 +1,9 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Roboto } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
+import { ApolloWrapper } from "@/providers/apolloProvider";
+import { Box } from "@mui/material";
+
 import theme from "../theme";
 
 const roboto = Roboto({
@@ -18,9 +21,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.variable}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </AppRouterCacheProvider>
+        <ApolloWrapper>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  minHeight: "100vh",
+                  backgroundColor: "background.default",
+                  margin: -1,
+                }}
+              >
+                {children}
+              </Box>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </ApolloWrapper>
       </body>
     </html>
   );

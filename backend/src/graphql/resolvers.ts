@@ -4,9 +4,9 @@ import { Resolvers } from "../generated/graphql";
 
 const resolvers: Resolvers = {
   Query: {
-    getTransportationFootprint: (_, { input }) =>
+    transportationFootprint: (_, { input }) =>
       calculateTransportationFootprint(input),
-    getWasteFootprint: (_, { input }) => calculateWasteFootprint(input),
+    wasteFootprint: (_, { input }) => calculateWasteFootprint(input),
   },
 };
 

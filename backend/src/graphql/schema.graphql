@@ -32,8 +32,8 @@ input WasteFootprintInput {
 }
 
 type Query {
-  getTransportationFootprint(
+  transportationFootprint(
     input: TransportationFootprintInput!
   ): FootprintResult!
-  getWasteFootprint(input: WasteFootprintInput!): FootprintResult!
+  wasteFootprint(input: WasteFootprintInput!): FootprintResult!
 }
