@@ -61,4 +61,6 @@
 
 ### 12/15
 
+- [Docs] Added README.md
 - [BE] Added Jest config + unit tests
+- [FE] Added Jest config + tests

@@ -16,7 +16,12 @@ const MenuCard: FC<MenuCardProps> = ({ title, emoji, link }) => {
 
   return (
     <Link href={link} style={{ textDecoration: "none", cursor: "pointer" }}>
-      <Card direction="row" justifyContent="space-between" p={4}>
+      <Card
+        direction="row"
+        justifyContent="space-between"
+        p={4}
+        data-testid="menuCard"
+      >
         <Typography variant="h2" sx={{ color: palette.text.primary }}>
           {title}
         </Typography>

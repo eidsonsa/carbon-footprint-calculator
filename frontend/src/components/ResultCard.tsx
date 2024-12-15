@@ -37,12 +37,11 @@ const ResultCard: FC<ResultCardProps> = ({ title, number, ...props }) => {
       justifyContent="space-between"
       alignItems="center"
       borderColor={getBorderColor()}
+      data-testid="resultCard"
     >
-      <Typography variant="h4">
-        {getEmoji()} {title}:
-      </Typography>
+      <Typography variant="h4">{`${getEmoji()} ${title}:`}</Typography>
       <Typography variant="h3" textAlign="center">
-        {number} lbs of CO₂ per year
+        {`${number} lbs of CO₂ per year`}
       </Typography>
     </Card>
   );

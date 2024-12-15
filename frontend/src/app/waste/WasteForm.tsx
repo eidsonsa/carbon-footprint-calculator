@@ -3,6 +3,7 @@
 import { WasteFootprintInput, WasteType } from "@/generated/graphql";
 import { getLabel } from "@/utils/text";
 import {
+  CircularProgress,
   FormControlLabel,
   FormGroup,
   Stack,
@@ -10,7 +11,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 
 import WasteResult from "./WasteResult";
 
@@ -59,7 +60,7 @@ const WasteForm = () => {
       <FormGroup row sx={{ justifyContent: "space-between" }}>
         {Object.values(WasteType).map((wasteType) => (
           <FormControlLabel
-            control={<Switch />}
+            control={<Switch name={wasteType} />}
             label={getLabel(wasteType)}
             color="secondary"
             key={wasteType}
@@ -70,7 +71,9 @@ const WasteForm = () => {
           />
         ))}
       </FormGroup>
-      <WasteResult input={input} />
+      <Suspense fallback={<CircularProgress />}>
+        <WasteResult input={input} />
+      </Suspense>
     </Stack>
   );
 };

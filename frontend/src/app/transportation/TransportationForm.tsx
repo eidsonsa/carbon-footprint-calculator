@@ -8,6 +8,7 @@ import {
 } from "@/generated/graphql";
 import {
   Button,
+  CircularProgress,
   InputAdornment,
   Stack,
   TextField,
@@ -15,7 +16,7 @@ import {
   ToggleButtonGroup,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import TransportationResult from "./TransportationResult";
 
 const initialVehicle: VehicleInfo = {
@@ -139,7 +140,9 @@ const TransportationForm = () => {
       <Button variant="contained" onClick={addVehicle}>
         Add vehicle
       </Button>
-      <TransportationResult input={input} />
+      <Suspense fallback={<CircularProgress />}>
+        <TransportationResult input={input} />
+      </Suspense>
     </Stack>
   );
 };
