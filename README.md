@@ -1,11 +1,64 @@
-# Development Journal
+# Carbon Footprint Calculator
 
-## 12/12
+## Features
+
+- Calculate your current emissions from Transportation
+- Calculate your current emissions from Waste
+
+## Running the project
+
+### Backend
+
+- Install the dependencies
+
+```bash
+  npm install
+```
+
+- Run the project. Using this command, the graphql codegen command will run as well
+
+```bash
+  npm start
+```
+
+### Frontend
+
+- Install the dependencies
+
+```bash
+  npm install
+```
+
+- Ensure the BE is already running and run the project. Using this command, the graphql codegen command will run as well
+
+```bash
+  npm start:dev
+```
+
+### Frontend
+
+- On each package, run this command and all the tests will be ran
+
+```bash
+  npm test
+```
+
+## Development Journal
+
+### 12/12
 
 - Created Github Repository
 - [BE] Created Project with Apollo Server
 - [FE] Created Project with Next + MUI
 
-## 12/13
+### 12/13
 
 - [BE] Implemented Calculator for Transportation and Waste
+
+### 12/14
+
+- [FE] Implemented Calculator for Transportation and Waste
+
+### 12/15
+
+- [BE] Added Jest config + unit tests

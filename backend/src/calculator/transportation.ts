@@ -10,17 +10,18 @@ const CO2_EMITTED_PER_GALOON = 19.6;
 const NON_CO2_EMISSIONS_RATIO = 1.01;
 const US_EMISSION_AVERAGE = 10484;
 
-const calculateFootprintForVehicle = (info: VehicleInfo): number => {
+export const calculateFootprintForVehicle = (info: VehicleInfo): number => {
   const { milesPerGaloon, miles, measureType } = info;
 
   const milesPerYear =
     measureType === MeasureType.Year ? miles : miles * WEEKS_IN_YEAR;
 
-  return (
+  const result =
     (milesPerYear / milesPerGaloon) *
     CO2_EMITTED_PER_GALOON *
-    NON_CO2_EMISSIONS_RATIO
-  );
+    NON_CO2_EMISSIONS_RATIO;
+
+  return Math.round(result);
 };
 
 export const calculateTransportationFootprint = (
@@ -33,6 +34,6 @@ export const calculateTransportationFootprint = (
   );
   return {
     average: US_EMISSION_AVERAGE,
-    total: Math.round(vehicleTotal),
+    total: vehicleTotal,
   };
 };
