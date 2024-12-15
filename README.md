@@ -5,6 +5,21 @@
 - Calculate your current emissions from Transportation
 - Calculate your current emissions from Waste
 
+## Technologies
+
+### Backend
+
+- Node
+- Apollo Server
+- GraphQL
+
+### Frontend
+
+- NextJS
+- MUI
+- Apollo Client
+- GraphQL
+
 ## Running the project
 
 ### Backend
