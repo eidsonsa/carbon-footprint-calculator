@@ -1,3 +1,4 @@
+import { calculateHomeEnergyFootprint } from "../calculator/homeEnergy";
 import { calculateTransportationFootprint } from "../calculator/transportation";
 import { calculateWasteFootprint } from "../calculator/waste";
 import { Resolvers } from "../generated/graphql";
@@ -7,6 +8,7 @@ const resolvers: Resolvers = {
     transportationFootprint: (_, { input }) =>
       calculateTransportationFootprint(input),
     wasteFootprint: (_, { input }) => calculateWasteFootprint(input),
+    homeEnergyFootprint: (_, { input }) => calculateHomeEnergyFootprint(input),
   },
 };
 

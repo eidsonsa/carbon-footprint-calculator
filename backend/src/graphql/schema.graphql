@@ -31,9 +31,17 @@ input WasteFootprintInput {
   homeQuantity: Int!
 }
 
+input HomeEnergyFootprintInput {
+  naturalGas: Float!
+  electricity: Float!
+  fuelOil: Float!
+  propane: Float!
+}
+
 type Query {
   transportationFootprint(
     input: TransportationFootprintInput!
   ): FootprintResult!
   wasteFootprint(input: WasteFootprintInput!): FootprintResult!
+  homeEnergyFootprint(input: HomeEnergyFootprintInput!): FootprintResult!
 }

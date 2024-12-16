@@ -7,6 +7,7 @@ const Home = async () => {
   return (
     <BaseContainer title="Personal Carbon Footprint Calculator" hideHomeButton>
       <Stack gap={2}>
+        <MenuCard title="Home Energy" emoji="💡" link="/homeenergy" />
         <MenuCard title="Transportation" emoji="🚗" link="/transportation" />
         <MenuCard title="Waste" emoji="🗑️" link="/waste" />
       </Stack>

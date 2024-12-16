@@ -1,17 +1,17 @@
 "use client";
 
 import { WasteFootprintInput, WasteType } from "@/generated/graphql";
-import { getLabel } from "@/utils/text";
+import { ensureIsPositive, getLabel } from "@/utils/text";
 import {
   CircularProgress,
   FormControlLabel,
   FormGroup,
   Stack,
   Switch,
-  TextField,
   Typography,
 } from "@mui/material";
 import React, { Suspense, useState } from "react";
+import TextFieldWithTitle from "@/components/TextFieldWithTitle";
 
 import WasteResult from "./WasteResult";
 
@@ -39,20 +39,19 @@ const WasteForm = () => {
 
   return (
     <Stack gap={4}>
-      <Stack direction="row" gap={2}>
-        <Typography variant="h5">
-          How many people are in your household?
-        </Typography>
-        <TextField
-          fullWidth
-          type="number"
-          placeholder="3"
-          value={input.homeQuantity}
-          onChange={(event) =>
-            setInput({ ...input, homeQuantity: +event.target.value })
-          }
-        />
-      </Stack>
+      <TextFieldWithTitle
+        title="How many people are in your household?"
+        fullWidth
+        type="number"
+        placeholder="3"
+        value={input.homeQuantity}
+        onChange={(event) =>
+          setInput({
+            ...input,
+            homeQuantity: ensureIsPositive(+event.target.value),
+          })
+        }
+      />
       <Typography variant="h5">
         Which of the following products do you currently recycle in your
         household?

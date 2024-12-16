@@ -2,6 +2,7 @@
 
 ## Features
 
+- Calculate your current emissions from Home Energy
 - Calculate your current emissions from Transportation
 - Calculate your current emissions from Waste
 
@@ -79,3 +80,7 @@
 - [Docs] Added README.md
 - [BE] Added Jest config + unit tests
 - [FE] Added Jest config + tests
+
+### 12/16
+
+- [BE][FE] Added support to Home Energy Calculator

@@ -12,6 +12,7 @@ describe("Home", () => {
       .map((card) => card.textContent);
 
     expect(cardsContents).toEqual([
+      expect.stringContaining("Home Energy"),
       expect.stringContaining("Transportation"),
       expect.stringContaining("Waste"),
     ]);

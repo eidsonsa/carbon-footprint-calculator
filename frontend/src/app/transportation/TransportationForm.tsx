@@ -17,6 +17,9 @@ import {
   Typography,
 } from "@mui/material";
 import React, { Suspense, useState } from "react";
+import TextFieldWithTitle from "@/components/TextFieldWithTitle";
+import { ensureIsPositive } from "@/utils/text";
+
 import TransportationResult from "./TransportationResult";
 
 const initialVehicle: VehicleInfo = {
@@ -93,7 +96,11 @@ const TransportationForm = () => {
               placeholder="3"
               value={input.vehicles[index].miles}
               onChange={(event) =>
-                updateVehicleField(index, "miles", +event.target.value)
+                updateVehicleField(
+                  index,
+                  "miles",
+                  ensureIsPositive(+event.target.value)
+                )
               }
               slotProps={{
                 input: {
@@ -104,32 +111,24 @@ const TransportationForm = () => {
               }}
             />
           </Stack>
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            gap={2}
-            justifyContent="space-between"
-          >
-            <Typography variant="h5">
-              What is the average gas mileage of this vehicle?
-            </Typography>
-            <TextField
-              type="number"
-              placeholder="21.6"
-              value={input.vehicles[index].milesPerGaloon}
-              onChange={(event) =>
-                updateVehicleField(index, "milesPerGaloon", +event.target.value)
-              }
-              slotProps={{
-                input: {
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      miles per gallon
-                    </InputAdornment>
-                  ),
-                },
-              }}
-            />
-          </Stack>
+          <TextFieldWithTitle
+            title="What is the average gas mileage of this vehicle?"
+            type="number"
+            placeholder="21.6"
+            value={input.vehicles[index].milesPerGaloon}
+            onChange={(event) =>
+              updateVehicleField(index, "milesPerGaloon", +event.target.value)
+            }
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position="end">
+                    miles per gallon
+                  </InputAdornment>
+                ),
+              },
+            }}
+          />
           {input.vehicles.length > 1 && (
             <Button variant="contained" onClick={() => removeVehicle(index)}>
               Remove vehicle
