@@ -48,7 +48,7 @@
 - Ensure the BE is already running and run the project. Using this command, the graphql codegen command will run as well
 
 ```bash
-  npm start:dev
+  npm start
 ```
 
 ### Frontend
